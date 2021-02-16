@@ -6,7 +6,7 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const unsigned int gappx     = 8;        /* gap pixel between windows */
-static const char *fonts[]          = { "monospace:size=15" };
+static const char *fonts[]          = { "monospace:size=18" };
 static const char dmenufont[]       = "monospace:size=10";
 
 #include "/home/adrian/.cache/wal/colors-wal-dwm.h"
@@ -50,8 +50,8 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[]    = { "dmenu_run", "-c",  "-l", "20", "-p", "Run: ", NULL };
 static const char *termcmd[]  = { "st.sh", NULL };
-static const char *roficmd[] = { "rofi", "-show", "drun", "-show-icons", NULL };
 static const char *surfcmd[]  = { "surf.sh", NULL };
+static const char *slockcmd[] = { "slock.sh", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -88,8 +88,8 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-        { MODKEY, XK_d, spawn, {.v = roficmd } },
+        { MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+        { MODKEY|ShiftMask,             XK_l,      spawn,          {.v = slockcmd } },
 };
 
 /* button definitions */
