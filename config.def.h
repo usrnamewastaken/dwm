@@ -5,10 +5,7 @@ static const unsigned int gappx     = 6;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]     = {"Mononoki Nerd Font:size=9:antialias=true:autohint=true",
-                                  "Hack:size=8:antialias=true:autohint=true",
-                                  "JoyPixels:size=10:antialias=true:autohint=true"
-						     	};
+static const char *fonts[]          = { "monospace:size=18" };
 static const char dmenufont[]       = "monospace:size=10";
 #include "home/adrian/.cache/wal/colors-wal-dwm.h"
 /* tagging */
@@ -50,8 +47,10 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[]    = { "dmenu_run", "-c",  "-l", "20", "-p", "Run: ", NULL }; 
-static const char *termcmd[]  = { "st.sh", NULL };
-static const char *slockcmd[] = { "slock.sh", NULL };
+static const char *termcmd[]  = { "tabbed", "-r", "2", "st", "-w", "''", NULL };
+static const char *slockcmd[] = { "slock", NULL };
+static const char *passcmd[] =  { "passmenu", "-c", "-l", "20", "-p", "Passwords: ", NULL };
+
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -89,6 +88,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
         { MODKEY|ShiftMask,             XK_l,      spawn,          {.v = slockcmd } },
+        { MODKEY|ShiftMask,             XK_p,      spawn,          {.v = passcmd } },
 
 };
 

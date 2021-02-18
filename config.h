@@ -49,9 +49,10 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[]    = { "dmenu_run", "-c",  "-l", "20", "-p", "Run: ", NULL };
-static const char *termcmd[]  = { "st.sh", NULL };
-static const char *surfcmd[]  = { "surf.sh", NULL };
-static const char *slockcmd[] = { "slock.sh", NULL };
+static const char *termcmd[]  = { "tabbed", "-r", "2", "st", "-w", "''", NULL };
+static const char *surfcmd[]  = { "tabbed", "surf", "-e", NULL };
+static const char *slockcmd[] = { "slock", NULL };
+static const char *passcmd[] =  { "passmenu", "-c", "-l", "20", "-p", "Passwords: ", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -90,6 +91,8 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
         { MODKEY|ShiftMask,             XK_q,      quit,           {0} },
         { MODKEY|ShiftMask,             XK_l,      spawn,          {.v = slockcmd } },
+        { MODKEY|ShiftMask,             XK_p,      spawn,          {.v = passcmd } },
+
 };
 
 /* button definitions */
