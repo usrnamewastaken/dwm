@@ -7,6 +7,10 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "monospace:size=18" };
 static const char dmenufont[]       = "monospace:size=10";
+
+
+/* replace Adrian with your username */
+
 #include "home/adrian/.cache/wal/colors-wal-dwm.h"
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
