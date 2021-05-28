@@ -5,8 +5,8 @@ static const unsigned int gappx     = 6;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=18" };
-static const char dmenufont[]       = "monospace:size=10";
+static const char *fonts[]          = { "monospace:size=12" };
+static const char dmenufont[]       = "monospace:size=12";
 
 
 /* replace Adrian with your username */
@@ -54,6 +54,7 @@ static const char *dmenucmd[]    = { "dmenu_run", "-c",  "-l", "20", "-p", "Run:
 static const char *termcmd[]  = { "tabbed", "-r", "2", "st", "-w", "''", NULL };
 static const char *slockcmd[] = { "slock", NULL };
 static const char *passcmd[] =  { "passmenu", "-c", "-l", "20", "-p", "Passwords: ", NULL };
+static const char *scrotcmd[] = { "scrot", "/home/adrian/screenshots/%Y-%m-%d-%T-screenshot.png", NULL };
 
 
 static Key keys[] = {
@@ -93,6 +94,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
         { MODKEY|ShiftMask,             XK_l,      spawn,          {.v = slockcmd } },
         { MODKEY|ShiftMask,             XK_p,      spawn,          {.v = passcmd } },
+        { MODKEY|ShiftMask,             XK_s,      spawn,          {.v = scrotcmd } },
+
 
 };
 

@@ -6,8 +6,8 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const unsigned int gappx     = 8;        /* gap pixel between windows */
-static const char *fonts[]          = { "monospace:size=18" };
-static const char dmenufont[]       = "monospace:size=10";
+static const char *fonts[]          = { "monospace:size=12" };
+static const char dmenufont[]       = "monospace:size=12";
 
 
 /* replace Adrian with your username */
@@ -53,15 +53,16 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[]    = { "dmenu_run", "-c",  "-l", "20", "-p", "Run: ", NULL };
 static const char *termcmd[]  = { "tabbed", "-r", "2", "st", "-w", "''", NULL };
-static const char *surfcmd[]  = { "tabbed", "surf", "-e", NULL };
+static const char *webcmd[]  = { "brave", NULL };
 static const char *slockcmd[] = { "slock", NULL };
 static const char *passcmd[] =  { "passmenu", "-c", "-l", "20", "-p", "Passwords: ", NULL };
-
+static const char *scrotcmd[] = { "scrot", "/home/adrian/screenshots/%Y-%m-%d-%T-screenshot.png", NULL };
+ 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-        { MODKEY,                       XK_s,      spawn,          {.v = surfcmd } },
+        { MODKEY,                       XK_w,      spawn,          {.v = webcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -95,6 +96,7 @@ static Key keys[] = {
         { MODKEY|ShiftMask,             XK_q,      quit,           {0} },
         { MODKEY|ShiftMask,             XK_l,      spawn,          {.v = slockcmd } },
         { MODKEY|ShiftMask,             XK_p,      spawn,          {.v = passcmd } },
+	{ MODKEY|ShiftMask,		XK_s,      spawn,          {.v = scrotcmd } },
 
 };
 
