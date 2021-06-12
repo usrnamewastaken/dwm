@@ -6,8 +6,9 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const unsigned int gappx     = 8;        /* gap pixel between windows */
-static const char *fonts[]          = { "monospace:size=12" };
-static const char dmenufont[]       = "monospace:size=12";
+static const char *fonts[]          = { "monospace:size=13" };
+static const char dmenufont[]       = "monospace:size=13";
+
 
 
 /* replace Adrian with your username */
@@ -57,6 +58,10 @@ static const char *webcmd[]  = { "brave", NULL };
 static const char *slockcmd[] = { "slock", NULL };
 static const char *passcmd[] =  { "passmenu", "-c", "-l", "20", "-p", "Passwords: ", NULL };
 static const char *scrotcmd[] = { "scrot", "/home/adrian/screenshots/%Y-%m-%d-%T-screenshot.png", NULL };
+static const char *fmcmd[] = { "pcmanfm", NULL };
+static const char *powercmd[] = { "powermenu", NULL };
+
+
  
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -93,11 +98,11 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-        { MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+        { MODKEY|ShiftMask,             XK_q,      spawn,          {.v = powercmd } },
         { MODKEY|ShiftMask,             XK_l,      spawn,          {.v = slockcmd } },
         { MODKEY|ShiftMask,             XK_p,      spawn,          {.v = passcmd } },
 	{ MODKEY|ShiftMask,		XK_s,      spawn,          {.v = scrotcmd } },
-
+	{ MODKEY|ShiftMask,		XK_f,      spawn,          {.v = fmcmd } },
 };
 
 /* button definitions */
