@@ -50,21 +50,17 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[]    = { "dmenu_run", "-c", "-bw", "5", "-l", "20", "-p", "Run: ", NULL }; 
+static const char *dmenucmd[]    = { "dmenu_run", "-c",  "-l", "20", "-p", "Run: ", NULL }; 
 static const char *termcmd[]  = { "tabbed", "-r", "2", "st", "-w", "''", NULL };
 static const char *slockcmd[] = { "slock", NULL };
 static const char *passcmd[] =  { "passmenu", "-c", "-l", "20", "-p", "Passwords: ", NULL };
 static const char *scrotcmd[] = { "scrot", "/home/adrian/screenshots/%Y-%m-%d-%T-screenshot.png", NULL };
-static const char *powercmd[] = { "powermenu", NULL };
-static const char *wallpapercmd[] = { "wallpaper", NULL };
-static const char *webcmd[] = { "brave", NULL };
-static const char *fmcmd[] = { "pcmanfm", NULL };
+
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY                        XK_w,      spawn,          {.v = webcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -95,12 +91,11 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
+	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
         { MODKEY|ShiftMask,             XK_l,      spawn,          {.v = slockcmd } },
         { MODKEY|ShiftMask,             XK_p,      spawn,          {.v = passcmd } },
         { MODKEY|ShiftMask,             XK_s,      spawn,          {.v = scrotcmd } },
-	{ MODKEY|ShiftMask,             XK_w,      spawn,          {.v = wallpapercmd } },
-        { MODKEY|ShiftMask,             XK_q,      spawn,          {.v = powercmd } },
-	{ MODKEY|ShiftMask,             XK_f,      spawn           {.v = fmcmd } },
+
 
 };
 
