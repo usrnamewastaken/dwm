@@ -5,8 +5,8 @@ static const unsigned int gappx     = 6;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=12" };
-static const char dmenufont[]       = "monospace:size=12";
+static const char *fonts[]          = { "Hack:size=12" };
+static const char dmenufont[]       = "Hack:size=12";
 
 
 /* replace Adrian with your username */
@@ -57,7 +57,7 @@ static const char *passcmd[] =  { "passmenu", "-c", "-l", "20", "-p", "Passwords
 static const char *scrotcmd[] = { "scrot", "/home/adrian/screenshots/%Y-%m-%d-%T-screenshot.png", NULL };
 static const char *powercmd[] = { "powermenu", NULL };
 static const char *wallpapercmd[] = { "wallpaper", NULL };
-static const char *webcmd[] = { "brave", NULL };
+static const char *webcmd[] = { "tabbed", "surf", "-e",   NULL };
 static const char *fmcmd[] = { "pcmanfm", NULL };
 
 static Key keys[] = {
