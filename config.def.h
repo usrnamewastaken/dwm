@@ -57,7 +57,7 @@ static const char *passcmd[] =  { "passmenu", "-c", "-l", "20", "-p", "Passwords
 static const char *scrotcmd[] = { "scrot", "/home/adrian/screenshots/%Y-%m-%d-%T-screenshot.png", NULL };
 static const char *powercmd[] = { "powermenu", NULL };
 static const char *wallpapercmd[] = { "wallpaper", NULL };
-static const char *webcmd[] = { "tabbed", "surf", "-e",   NULL };
+static const char *webcmd[] = { "brave",   NULL };
 static const char *fmcmd[] = { "pcmanfm", NULL };
 
 static Key keys[] = {
