@@ -59,6 +59,7 @@ static const char *powercmd[] = { "powermenu", NULL };
 static const char *wallpapercmd[] = { "wallpaper", NULL };
 static const char *webcmd[] = { "librewolf",   NULL };
 static const char *fmcmd[] = { "pcmanfm", NULL };
+static const char *ejectcmd[] = { "eject", "/dev/sr0",  NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -101,6 +102,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_w,      spawn,          {.v = wallpapercmd } },
         { MODKEY|ShiftMask,             XK_q,      spawn,          {.v = powercmd } },
 	{ MODKEY|ShiftMask,             XK_f,      spawn,           {.v = fmcmd } },
+        { MODKEY|ShiftMask,             XK_e,      spawn,          {.v = ejectcmd } },
 
 };
 
