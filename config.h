@@ -9,6 +9,8 @@ static const char *fonts[]          = { "Hack:size=12" };
 static const char dmenufont[]       = "Hack:size=12";
 
 
+#include <X11/XF86keysym.h>
+
 /* replace Adrian with your username */
 
 #include "/home/adrian/.cache/wal/colors-wal-dwm.h"
@@ -60,6 +62,14 @@ static const char *wallpapercmd[] = { "wallpaper", NULL };
 static const char *webcmd[] = { "librewolf",   NULL };
 static const char *fmcmd[] = { "pcmanfm", NULL };
 static const char *ejectcmd[] = { "eject", "/dev/sr0",  NULL };
+static const char *mutecmd[] = { "amixer", "-q", "set", "Master", "0%", NULL };
+static const char *volupcmd[] = { "amixer", "-q", "set", "Master", "5%+", "unmute",  NULL };
+static const char *voldowncmd[] = { "amixer", "-q", "set", "Master", "5%-", "unmute",  NULL };
+
+
+
+
+
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -101,8 +111,12 @@ static Key keys[] = {
         { MODKEY|ShiftMask,             XK_s,      spawn,          {.v = scrotcmd } },
 	{ MODKEY|ShiftMask,             XK_w,      spawn,          {.v = wallpapercmd } },
         { MODKEY|ShiftMask,             XK_q,      spawn,          {.v = powercmd } },
-	{ MODKEY|ShiftMask,             XK_f,      spawn,           {.v = fmcmd } },
+	{ MODKEY|ShiftMask,             XK_f,      spawn,          {.v = fmcmd } },
         { MODKEY|ShiftMask,             XK_e,      spawn,          {.v = ejectcmd } },
+	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = voldowncmd } },
+        { MODKEY|ShiftMask,             XK_u,      spawn,          {.v = volupcmd } },
+        { MODKEY|ShiftMask,             XK_m,      spawn,          {.v = mutecmd } },
+
 
 };
 
