@@ -30,7 +30,7 @@ static const Rule rules[] = {
 /* layout(s) */
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
+static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -65,7 +65,7 @@ static const char *ejectcmd[] = { "eject", "/dev/sr0",  NULL };
 static const char *mutecmd[] = { "amixer", "-q", "set", "Master", "0%", NULL };
 static const char *volupcmd[] = { "amixer", "-q", "set", "Master", "5%+", "unmute",  NULL };
 static const char *voldowncmd[] = { "amixer", "-q", "set", "Master", "5%-", "unmute",  NULL };
-
+static const char *dvdcmd[] = { "mpv", "--no-terminal", "--really-quiet", "dvd://", NULL };
 
 
 
@@ -113,9 +113,10 @@ static Key keys[] = {
         { MODKEY|ShiftMask,             XK_q,      spawn,          {.v = powercmd } },
 	{ MODKEY|ShiftMask,             XK_f,      spawn,          {.v = fmcmd } },
         { MODKEY|ShiftMask,             XK_e,      spawn,          {.v = ejectcmd } },
-	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = voldowncmd } },
-        { MODKEY|ShiftMask,             XK_u,      spawn,          {.v = volupcmd } },
+	{ MODKEY|ShiftMask,             XK_Down,   spawn,          {.v = voldowncmd } },
+        { MODKEY|ShiftMask,             XK_Up,     spawn,          {.v = volupcmd } },
         { MODKEY|ShiftMask,             XK_m,      spawn,          {.v = mutecmd } },
+	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = dvdcmd } },
 
 
 };
