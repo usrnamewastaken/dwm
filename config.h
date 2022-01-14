@@ -5,8 +5,8 @@ static const unsigned int gappx     = 6;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Hack:size=12" };
-static const char dmenufont[]       = "Hack:size=12";
+static const char *fonts[]          = { "Comic Mono:size=12" };
+static const char dmenufont[]       = "Comic Mono:size=12";
 
 
 #include <X11/XF86keysym.h>
@@ -55,11 +55,10 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[]    = { "dmenu_run", "-c", "-bw", "5", "-l", "20", "-p", "Run: ", NULL }; 
 static const char *termcmd[]  = { "tabbed", "-r", "2", "st", "-w", "''", NULL };
 static const char *slockcmd[] = { "slock", NULL };
-static const char *passcmd[] =  { "passmenu", "-c", "-l", "20", "-p", "Passwords: ", NULL };
+static const char *passcmd[] =  { "passmenu", "-c", "-bw", "5", "-l", "20", "-p", "Passwords: ", NULL };
 static const char *scrotcmd[] = { "scrot", "/home/adrian/screenshots/%Y-%m-%d-%T-screenshot.png", NULL };
 static const char *powercmd[] = { "powermenu", NULL };
-static const char *wallpapercmd[] = { "wallpaper", NULL };
-static const char *webcmd[] = { "librewolf",   NULL };
+static const char *webcmd[] = { "firefox",   NULL };
 static const char *fmcmd[] = { "pcmanfm", NULL };
 static const char *ejectcmd[] = { "eject", "/dev/sr0",  NULL };
 static const char *mutecmd[] = { "amixer", "-q", "set", "Master", "0%", NULL };
@@ -109,7 +108,6 @@ static Key keys[] = {
         { MODKEY|ShiftMask,             XK_l,      spawn,          {.v = slockcmd } },
         { MODKEY|ShiftMask,             XK_p,      spawn,          {.v = passcmd } },
         { MODKEY|ShiftMask,             XK_s,      spawn,          {.v = scrotcmd } },
-	{ MODKEY|ShiftMask,             XK_w,      spawn,          {.v = wallpapercmd } },
         { MODKEY|ShiftMask,             XK_q,      spawn,          {.v = powercmd } },
 	{ MODKEY|ShiftMask,             XK_f,      spawn,          {.v = fmcmd } },
         { MODKEY|ShiftMask,             XK_e,      spawn,          {.v = ejectcmd } },
